@@ -6,9 +6,13 @@ function Contact(props){
           <li>{props.mail}</li>
           <li>{props.tel}</li>
         </ul>
-        <div>
-          <button>Supprimer</button>
-        </div>
+        {
+            props.isDeletable ? 
+            <div className="deleteCol">
+                <button>Supprimer</button>
+            </div>: 
+            <div className="deleteCol"></div>
+        }
     </div>
     )
 }
