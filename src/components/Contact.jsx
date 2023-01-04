@@ -1,20 +1,27 @@
-function Contact(props){
-    return (
+import { useState } from "react";
+
+function Contact({ contact, removeComponent}) {
+
+  const onPressDelete = () => {
+    removeComponent(contact.tel);
+  };
+
+  return (
     <div className="person-item">
-        <ul className='person-contact'>
-          <li>{props.name}</li>
-          <li>{props.mail}</li>
-          <li>{props.tel}</li>
-        </ul>
-        {
-            props.isDeletable ? 
-            <div className="deleteCol">
-                <button>Supprimer</button>
-            </div>: 
-            <div className="deleteCol"></div>
-        }
+      <ul className="person-contact">
+        <li>{contact.name}</li>
+        <li>{contact.mail}</li>
+        <li>{contact.tel}</li>
+      </ul>
+      {contact.isDeletable ? (
+        <div className="deleteCol">
+          <button onClick={onPressDelete}>Supprimer</button>
+        </div>
+      ) : (
+        <div className="deleteCol"></div>
+      )}
     </div>
-    )
+  );
 }
 
-export default Contact
+export default Contact;

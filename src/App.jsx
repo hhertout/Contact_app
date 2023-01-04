@@ -6,9 +6,9 @@ function App() {
   
   return (
     <>
-      <h1 className='title'>Ma liste de contact !</h1>
+      <h1 className='title'>Ma liste de contact</h1>
       <div className="App">
-        <ContactInfo></ContactInfo>
+        <ContactInfo />
       </div>
     </>
   )
