@@ -5,7 +5,7 @@ function Contact({ contact, removeComponent }) {
   const onPressDelete = () => {
     removeComponent(contact.id);
   };
-
+ 
   return (
     <div className="person-item">
       <ul className="person-contact">
