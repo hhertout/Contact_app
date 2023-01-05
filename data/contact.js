@@ -1,11 +1,11 @@
-export const contactInfo = [
+export const contactData = [
     {
         id: 0,
         name: 'Emmanuel',
         mail: "emmanuel@email.com",
         tel: "23423434",
         isDeletable: true,
-        isDeleted: false
+        isVisible: false
     },
     {
         id: 1,
@@ -13,7 +13,7 @@ export const contactInfo = [
         mail: "johana@ElementInternals.com",
         tel: "6764563456",
         isDeletable: true,
-        isDeleted: false
+        isVisible: false
     },
     {
         id: 2,
@@ -21,7 +21,7 @@ export const contactInfo = [
         mail: "lucas@email.com",
         tel: "12125465",
         isDeletable: false,
-        isDeleted: false
+        isVisible: false
     },
     {
         id: 3,

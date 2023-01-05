@@ -1,9 +1,9 @@
 import { useState } from "react";
 
-function Contact({ contact, removeComponent }) {
+function Contact({ contact, hide }) {
 
-  const onPressDelete = () => {
-    removeComponent(contact.id);
+  const isHidden = () => {
+    hide(contact.id);
   };
  
   return (
@@ -15,7 +15,7 @@ function Contact({ contact, removeComponent }) {
       </ul>
       {contact.isDeletable ? (
         <div className="deleteCol">
-          <button onClick={onPressDelete}>Supprimer</button>
+          <button onClick={isHidden}>Supprimer</button>
         </div>
       ) : (
         <div className="deleteCol"></div>

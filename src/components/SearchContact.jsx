@@ -1,10 +1,11 @@
 import { useState } from "react";
-import ContactInfo from "./ContactInfo";
+import ContactList from "./ContactList";
 
 function SearchContact() {
   const [searchName, setSearchName] = useState("");
 
   const handleChange = (e) => {
+      e.preventDefault()
       setSearchName(searchName => searchName = e.target.value);
     };
 
@@ -14,7 +15,7 @@ function SearchContact() {
             <label htmlFor="searchName">
                 <input id="searchName" value={searchName} onChange={handleChange}></input>
             </label>
-            <ContactInfo search={searchName} />
+            <ContactList search={searchName} />
         </form>
     </>
   );
