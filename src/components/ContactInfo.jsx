@@ -3,7 +3,7 @@ import Contact from './Contact'
 
 const contactInfo = [
     {
-        id: 1,
+        id: 0,
         name: 'Emmanuel',
         mail: "emmanuel@email.com",
         tel: "23423434",
@@ -11,7 +11,7 @@ const contactInfo = [
         isDeleted: false
     },
     {
-        id: 2,
+        id: 1,
         name: 'Johana',
         mail: "johana@ElementInternals.com",
         tel: "6764563456",
@@ -19,7 +19,7 @@ const contactInfo = [
         isDeleted: false
     },
     {
-        id: 3,
+        id: 2,
         name: 'Lucas',
         mail: "lucas@email.com",
         tel: "12125465",
@@ -27,7 +27,7 @@ const contactInfo = [
         isDeleted: false
     },
     {
-        id: 4,
+        id: 3,
         name: 'Marie',
         mail: "marie@rm.com",
         tel: "12125465",
@@ -35,7 +35,7 @@ const contactInfo = [
         isDeleted: false
     },
     {
-        id: 5,
+        id: 4,
         name: 'Pedro',
         mail: "pedro@rn.com",
         tel: "34634571234",
@@ -47,9 +47,8 @@ const contactInfo = [
 function ContactInfo(){
     const [updated, setUpdated] = useState(false)
     const removeComponent = (target) => {
-        /* contactInfo[target].isDeleted = true
-        setUpdated(!updated) */
-        console.log(`phone : ${target}`)
+        contactInfo[target].isDeleted = true
+        setUpdated(!updated)
     }
     
     return (

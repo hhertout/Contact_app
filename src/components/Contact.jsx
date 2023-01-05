@@ -1,9 +1,9 @@
 import { useState } from "react";
 
-function Contact({ contact, removeComponent}) {
+function Contact({ contact, removeComponent }) {
 
   const onPressDelete = () => {
-    removeComponent(contact.tel);
+    removeComponent(contact.id);
   };
 
   return (
