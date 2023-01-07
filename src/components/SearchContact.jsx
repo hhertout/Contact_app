@@ -5,18 +5,16 @@ function SearchContact() {
   const [searchName, setSearchName] = useState("");
 
   const handleChange = (e) => {
-      e.preventDefault()
-      setSearchName(searchName => searchName = e.target.value);
+      setSearchName(e.target.value);
     };
 
   return (
     <>
-        <form action="">
-            <label htmlFor="searchName">
-                <input id="searchName" value={searchName} onChange={handleChange}></input>
-            </label>
+            <label htmlFor="searchName">Rechercher</label>
+            <input id="searchName" value={searchName} onChange={handleChange}></input>
+            
             <ContactList search={searchName} />
-        </form>
+            
     </>
   );
 }

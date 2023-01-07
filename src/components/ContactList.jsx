@@ -1,21 +1,21 @@
 import { useEffect, useState } from 'react'
 import Contact from './Contact'
-import {contactData} from '../../data/contact'
+//import {contactData} from '../../data/contact'
+import contactData from '../../data/contacts.json'
 
 function ContactList({search}){
-    const [isVisible, setIsVisible] = useState(true)
+    const [visible, setVisible] = useState(true)
     const hide = (target) => {
-        setIsVisible(target.isVisible = false)
+        contactData[target].isVisible = false
+        setVisible(!visible)
     }
-    console.log(contactData[0].isVisible)
     
     return (
         <div>
             { contactData
-                .filter(contact => isVisible === true && contact.name.includes(search))
+                .filter(contact => contact.isVisible === true && contact.name.includes(search))
                 .map((contact, index) => (
                         <Contact
-                            isVisible={isVisible}
                             key={index}
                             hide={hide}
                             contact={contact}
