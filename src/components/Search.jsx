@@ -10,10 +10,10 @@ function Search({ labelName, searchByName, searchByPhone }) {
   };
 
   return (
-    <>
-      <label htmlFor="search">Rechercher par {labelName}</label>
-      <input id="search" onChange={handleChange}></input>
-    </>
+    <div className="m-2 flex flex-col">
+      <label htmlFor="search">Rechercher par {labelName} :</label>
+      <input className="border-2 border-dark-blue p-1 m-1 shadow-lg rounded" id="search" onChange={handleChange}></input>
+    </div>
   );
 }
 
