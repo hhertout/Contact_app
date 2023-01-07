@@ -1,5 +1,5 @@
 import './App.css'
-import SearchContact from './components/SearchContact'
+import ContactList from './components/ContactList'
 
 function App() {
   
@@ -7,7 +7,7 @@ function App() {
     <>
       <h1 className='title'>Ma liste de contact</h1>
       <div className="App">
-        <SearchContact />
+        <ContactList />
       </div>
     </>
   )
