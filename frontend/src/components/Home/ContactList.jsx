@@ -1,7 +1,12 @@
 import { useEffect, useState } from "react";
 import Contact from "./Contact";
-import contactData from "../../../data/contacts.json";
 import Search from "../Search";
+
+let contactData = {}
+const res = await fetch('http://localhost:3000/api/contacts')
+contactData = await res.json()
+
+console.log(contactData)
 
 function ContactList() {
   const [visible, setVisible] = useState(true);

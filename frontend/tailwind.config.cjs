@@ -22,6 +22,9 @@ module.exports = {
       'gray-light': '#d3dce6',
       'white': '#F1F1F1'
     },
+    container: {
+      center: true,
+    },
     extend: {},
   },
   plugins: [],

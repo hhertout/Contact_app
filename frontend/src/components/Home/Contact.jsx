@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 function Contact({ contact, hide }) {
   const isHidden = () => {
     hide(contact.id);
