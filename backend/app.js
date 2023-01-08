@@ -25,7 +25,6 @@ app.post('/api/contacts', (req, res, next) => {
     const contact = new ContactRepository({
         ...req.body
     })
-    console.log(contact)
     contact.save()
     .then(()=>res.status(201).json({message: "Contact enregistré !"}))
     .catch(err => res.status(400).json({ err }))
@@ -37,51 +36,14 @@ app.get('/api/contacts', (req, res, next) => {
     .catch(err => res.status(400).json({ err }))
 })
 
-app.get('/api/contacts', (req, res, next) => {
-    const contacts = [
-        {
-            "id": 0,
-            "name": "Emmanuel",
-            "mail": "emmanuel@email.com",
-            "tel": "23423434",
-            "isDeletable": true,
-            "isVisible": true
-        },
-        {
-            "id": 1,
-            "name": "Johana",
-            "mail": "johana@ElementInternals.com",
-            "tel": "6764563456",
-            "isDeletable": true,
-            "isVisible": true
-        },
-        {
-            "id": 2,
-            "name": "Lucas",
-            "mail": "lucas@email.com",
-            "tel": "12125465",
-            "isDeletable": false,
-            "isVisible": true
-        },
-        {
-            "id": 3,
-            "name": "Marie",
-            "mail": "marie@rm.com",
-            "tel": "12125465",
-            "isDeletable": true,
-            "isVisible": true
-        },
-        {
-            "id": 4,
-            "name": "Pedro",
-            "mail": "pedro@rn.com",
-            "tel": "34634571234",
-            "isDeletable": true,
-            "isVisible": true
-        }
-    ]
-    res.status(200).json(contacts)
-  });
+app.get('/api/contacts/:id', (req, res, next) => {
+    ContactRepository.findOne({ name : req.params.id })
+    .then(contact => {
+        res.status(200).json(contact)
+        console.log(contact)
+    })
+    .catch(err => res.status(400).json({ err }))
+})
 
 module.exports = app
 

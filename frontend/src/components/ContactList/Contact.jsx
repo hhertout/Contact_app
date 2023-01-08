@@ -1,3 +1,5 @@
+import { Link, useParams } from "react-router-dom";
+
 function Contact({ contact, hide }) {
   const isHidden = () => {
     hide(contact.id);
@@ -6,14 +8,29 @@ function Contact({ contact, hide }) {
   return (
     <div className="container grid grid-cols-2 gap-2 mx-auto p-2">
       <ul className="my-3">
-        <li>{contact.name}</li>
+        <li className="font-bold">{contact.name}</li>
         <li>{contact.mail}</li>
         <li>{contact.tel}</li>
       </ul>
       <div className="flex justify-center items-center">
-        <button onClick={isHidden} className="bg-dark-blue shadow-lg text-white p-3 rounded">
+        <Link
+          to={`/repertoire/${contact.name}`}
+          className="w-40 text-center mx-2 bg-dark-blue shadow-lg text-white p-3 rounded"
+        >
+          Voir
+        </Link>
+        <Link
+          to={`/repertoire/edit/${contact.name}`}
+          className="w-40 text-center mx-2 bg-dark-blue shadow-lg text-white p-3 rounded"
+        >
+          Modifier
+        </Link>
+        <Link
+          to={`/repertoire/delete/${contact.name}`}
+          className="w-40 text-center mx-2 bg-red shadow-lg text-white p-3 rounded"
+        >
           Supprimer
-        </button>
+        </Link>
       </div>
     </div>
   );
