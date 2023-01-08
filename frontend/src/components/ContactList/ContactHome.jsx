@@ -2,11 +2,11 @@ import ContactList from "./ContactList"
 import ContactForm from "./ContactForm"
 
 
-function Book() {
+function ContactHome() {
     return <>
         <ContactList />
         <ContactForm  method={"POST"}/>
     </>
 }
 
-export default Book
+export default ContactHome

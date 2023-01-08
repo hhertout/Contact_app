@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { Link} from "react-router-dom";
 import Contact from "./Contact";
 import Search from "../Search";
+import BookIcon from "../icon/BookIcon";
 
 let contactData = {}
 const res = await fetch('http://localhost:3000/api/contacts')
@@ -24,16 +26,15 @@ function ContactList() {
   return (
     <div>
       <div className="flex items-center justify-center p-2 m-2">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8 mx-3" >
-          <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
-        </svg>
+        <BookIcon />
         <h1 className="text-4xl font-bold">Ma liste de contact</h1>
       </div>
-      <div className="flex flex-col justify-center items-center">
+      <div className="flex flex-col md:flex-row justify-center items-center">
         <Search labelName="Nom" searchByName={searchByName} />
         <Search labelName="Téléphone" searchByPhone={searchByPhone} />
+        <Link to="/" className="text-center mx-2 bg-dark-blue shadow-lg text-white p-3 rounded">Ajouter un contact</Link>
       </div>
-      <div>
+      <div className="mt-7">
         {contactData
           .filter(
             (contact) =>
