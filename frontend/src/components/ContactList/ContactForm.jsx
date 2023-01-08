@@ -1,7 +1,7 @@
 
 import { useState } from "react"
 
-function ContactForm({method, contact, contactId}){
+function ContactForm({method, contactId}){
     const [name, setName] = useState('')
     const [mail, setMail] = useState('')
     const [tel, setTel] = useState('')

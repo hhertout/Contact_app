@@ -4,6 +4,7 @@ import ContactHome from "./components/ContactList/ContactHome";
 import Navbar from "./components/Navbar";
 import ContactShow from "./components/ContactList/ContactShow";
 import ContactEdit from "./components/ContactList/ContactEdit";
+import ContactAdd from "./components/ContactList/ContactAdd";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/repertoire" element={<ContactHome />} />
         <Route path="/repertoire/:contactId" element={<ContactShow />}/>
         <Route path="/repertoire/modifier/:contactId" element={<ContactEdit />}/>
+        <Route path="/repertoire/ajouter" element={<ContactAdd />}/>
       </Routes>
     </Router>
   );

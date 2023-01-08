@@ -32,7 +32,7 @@ function ContactList() {
       <div className="flex flex-col md:flex-row justify-center items-center">
         <Search labelName="Nom" searchByName={searchByName} />
         <Search labelName="Téléphone" searchByPhone={searchByPhone} />
-        <Link to="/" className="text-center mx-2 bg-dark-blue shadow-lg text-white p-3 rounded">Ajouter un contact</Link>
+        <Link to="/repertoire/ajouter" className="text-center mx-2 bg-dark-blue shadow-lg text-white p-3 rounded">Ajouter un contact</Link>
       </div>
       <div className="mt-7">
         {contactData
