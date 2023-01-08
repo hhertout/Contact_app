@@ -45,7 +45,6 @@ app.get('/api/contacts/:id', (req, res, next) => {
 })
 
 app.put('/api/contacts/:id', (req, res, next) => {
-    console.log('entering')
     ContactRepository.updateOne(
         { _id : req.params.id }, 
         {...req.body, _id: req.params.id}

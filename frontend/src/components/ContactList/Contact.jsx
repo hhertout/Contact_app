@@ -1,4 +1,5 @@
 import { Link, useParams } from "react-router-dom";
+import Delete from "../Delete";
 
 function Contact({ contact, hide }) {
   const isHidden = () => {
@@ -25,12 +26,8 @@ function Contact({ contact, hide }) {
         >
           Modifier
         </Link>
-        <Link
-          to={`/repertoire/delete/${contact._id}`}
-          className="w-40 text-center mx-2 bg-red shadow-lg text-white p-3 rounded"
-        >
-          Supprimer
-        </Link>
+
+        <Delete contactId={contact._id}/>
       </div>
     </div>
   );
