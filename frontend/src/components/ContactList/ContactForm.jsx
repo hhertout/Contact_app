@@ -31,7 +31,10 @@ function ContactForm({action}){
         }
         const route = 'http://localhost:3000/api/contacts'
 
-        fetch(route, init).then((res) => console.log(res.status))
+        fetch(route, init).then((res) => {
+            console.log(res.status)
+            window.location.href = '/repertoire'
+        })
     }
     
 

@@ -4,7 +4,7 @@ function Contact({ contact, hide }) {
   };
 
   return (
-    <div className="container grid grid-cols-2 gap-2 mx-auto">
+    <div className="container grid grid-cols-2 gap-2 mx-auto p-2">
       <ul className="my-3">
         <li>{contact.name}</li>
         <li>{contact.mail}</li>

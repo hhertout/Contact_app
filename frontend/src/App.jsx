@@ -1,14 +1,17 @@
-import ContactList from "./components/Home/ContactList";
-import ContactForm from "./components/Home/ContactForm";
-
-
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import HomePage from "./components/Home/HomePage";
+import Book from "./components/ContactList/Book";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
-    <>
-        <ContactList />
-        <ContactForm  action={"Créer"}/>
-    </>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<HomePage />}></Route>
+        <Route path="/repertoire" element={<Book />}></Route>
+      </Routes>
+    </Router>
   );
 }
 
