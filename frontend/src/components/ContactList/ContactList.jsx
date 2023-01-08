@@ -29,10 +29,12 @@ function ContactList() {
         <BookIcon />
         <h1 className="text-4xl font-bold">Ma liste de contact</h1>
       </div>
-      <div className="flex flex-col md:flex-row justify-center items-center">
-        <Search labelName="Nom" searchByName={searchByName} />
-        <Search labelName="Téléphone" searchByPhone={searchByPhone} />
+      <div className="flex justify-evenly items-center">
         <Link to="/repertoire/ajouter" className="text-center mx-2 bg-dark-blue shadow-lg text-white p-3 rounded">Ajouter un contact</Link>
+        <div className="d-flex">
+          <Search labelName="Nom" searchByName={searchByName} />
+          <Search labelName="Téléphone" searchByPhone={searchByPhone} />
+        </div>
       </div>
       <div className="mt-7">
         {contactData
