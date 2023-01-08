@@ -37,12 +37,33 @@ app.get('/api/contacts', (req, res, next) => {
 })
 
 app.get('/api/contacts/:id', (req, res, next) => {
-    ContactRepository.findOne({ name : req.params.id })
+    ContactRepository.findOne({ _id : req.params.id })
     .then(contact => {
         res.status(200).json(contact)
-        console.log(contact)
     })
     .catch(err => res.status(400).json({ err }))
+})
+
+app.put('/api/contacts/:id', (req, res, next) => {
+    console.log('entering')
+    ContactRepository.updateOne(
+        { _id : req.params.id }, 
+        {...req.body, _id: req.params.id}
+    )
+    .then(() => {
+        res.status(200).json({ message : 'Modification Effectuée' })
+    })
+    .catch(err => res.status(400).json({err}))
+})
+
+
+app.delete('/api/contacts/:id', (req, res, next) => {
+    ContactRepository.deleteOne(
+        { _id: req.params.id })
+        .then(() => {
+            res.status(200).json({message: "Contact supprimé"})
+        })
+        .catch(err => res.status(400).json({err}))
 })
 
 module.exports = app

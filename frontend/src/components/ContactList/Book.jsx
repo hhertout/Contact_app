@@ -5,7 +5,7 @@ import ContactForm from "./ContactForm"
 function Book() {
     return <>
         <ContactList />
-        <ContactForm  action={"Créer"}/>
+        <ContactForm  method={"POST"}/>
     </>
 }
 

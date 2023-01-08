@@ -1,6 +1,7 @@
+
 import { useState } from "react"
 
-function ContactForm({action}){
+function ContactForm({method, contact, contactId}){
     const [name, setName] = useState('')
     const [mail, setMail] = useState('')
     const [tel, setTel] = useState('')
@@ -14,27 +15,45 @@ function ContactForm({action}){
     const telHandleChange = (e) => {
         setTel(e.target.value)
     }
+
     const postData = (e) => {
         e.preventDefault()
-
-        const init = {
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            method: 'POST',
-            body: JSON.stringify({
-                name: name,
-                mail: mail,
-                tel: tel,
+        
+        if(method === 'POST'){
+            const init = {
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                method: method,
+                body: JSON.stringify({
+                    name: name,
+                    mail: mail,
+                    tel: tel,
+                })
+            }
+            const route = 'http://localhost:3000/api/contacts'
+            fetch(route, init).then((res) => {
+                window.location.href = '/repertoire'
             })
         }
-        const route = 'http://localhost:3000/api/contacts'
 
-        fetch(route, init).then((res) => {
-            console.log(res.status)
+        if(method === 'PUT'){
+            const init = {
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                method: 'PUT',
+                body: JSON.stringify({
+                    name: name,
+                    mail: mail,
+                    tel: tel,
+                })
+            }
+            const route = `http://localhost:3000/api/contacts/${contactId}`
+            fetch(route, init).then((res) => {
             window.location.href = '/repertoire'
         })
+        }  
     }
     
 
@@ -63,12 +82,13 @@ function ContactForm({action}){
                 <input 
                     id="tel" 
                     type="text" 
-                    onChange={telHandleChange} 
+                    onChange={telHandleChange}
+                    placeholder={''}
                     value={tel} 
                     className="border-2 border-dark-blue p-1 m-1 shadow-lg rounded"
                 />
 
-                <button id="submit" className="my-3 p-3 bg-blue rounded">{action}</button>
+                <button id="submit" className="my-3 p-3 bg-blue rounded">{method === 'PUT' ? 'Modifier' : 'Créer'}</button>
             </form>
         </div>
     )

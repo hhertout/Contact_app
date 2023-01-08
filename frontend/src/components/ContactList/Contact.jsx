@@ -14,19 +14,19 @@ function Contact({ contact, hide }) {
       </ul>
       <div className="flex justify-center items-center">
         <Link
-          to={`/repertoire/${contact.name}`}
+          to={`/repertoire/${contact._id}`}
           className="w-40 text-center mx-2 bg-dark-blue shadow-lg text-white p-3 rounded"
         >
           Voir
         </Link>
         <Link
-          to={`/repertoire/edit/${contact.name}`}
+          to={`/repertoire/modifier/${contact._id}`}
           className="w-40 text-center mx-2 bg-dark-blue shadow-lg text-white p-3 rounded"
         >
           Modifier
         </Link>
         <Link
-          to={`/repertoire/delete/${contact.name}`}
+          to={`/repertoire/delete/${contact._id}`}
           className="w-40 text-center mx-2 bg-red shadow-lg text-white p-3 rounded"
         >
           Supprimer
