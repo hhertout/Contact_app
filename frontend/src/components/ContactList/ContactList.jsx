@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link} from "react-router-dom";
 import Contact from "./Contact";
 import Search from "../Search";

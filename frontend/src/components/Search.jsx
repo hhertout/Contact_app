@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useState } from "react";
 
 function Search({ labelName, searchByName, searchByPhone }) {
@@ -5,9 +6,15 @@ function Search({ labelName, searchByName, searchByPhone }) {
 
   const handleChange = (e) => {
     setSearch(e.target.value);
-    searchByName ? searchByName(search) : null;
-    searchByPhone ? searchByPhone(search) : null;
-  };
+  }
+  useEffect(() => {
+    if(searchByName) {
+      searchByName(search)
+    }
+    if(searchByPhone) {
+      searchByPhone(search)
+    }
+  }, [search])
 
   return (
     <div className="m-2 flex flex-col">
