@@ -1,10 +1,18 @@
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import Delete from "../Delete";
 import PhoneIcon from "../icon/PhoneIcon";
 
-function Contact({ contact }) {
-  const route = `http://localhost:3000/api/contacts/${contact._id}`;
+const deleteContact = (contactId) => {
+  const route = `http://localhost:3000/api/contacts/${contactId}`;
+  const init = {
+    method: "DELETE",
+  };
+  fetch(route, init).then((res) => {
+    window.location.href = "/repertoire";
+  });
+};
 
+function Contact({ contact }) {
   return (
     <div className="container grid grid-cols-2 gap-2 mx-auto p-2">
       <ul className="my-3 flex flex-col justify-start align-center">
@@ -28,7 +36,7 @@ function Contact({ contact }) {
           Modifier
         </Link>
 
-        <Delete route={route} />
+        <Delete id={contact._id} deleteTarget={deleteContact}/>
       </div>
     </div>
   );

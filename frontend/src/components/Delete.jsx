@@ -1,15 +1,10 @@
 import { useState } from "react";
 
-function Delete({route}) {
+function Delete({id, deleteTarget}) {
     const [ status, setStatus ] = useState('')
   const deleteElement = (e) => {
     e.preventDefault();
-    const init = {
-      method: "DELETE",
-    };
-    fetch(route, init).then((res) => {
-      window.location.href = "/repertoire";
-    });
+    deleteTarget(id);
   };
   return (
     <>

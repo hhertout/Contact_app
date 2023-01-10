@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import Contact from "./Contact";
 
 function ContactShow() {
   const { contactId } = useParams();
