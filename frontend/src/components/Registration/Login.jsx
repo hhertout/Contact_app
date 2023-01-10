@@ -12,20 +12,23 @@ function Login() {
     <div className="container max-w-prose mt-5">
       <div className="text-2xl mt-1">Se connecter</div>
       <form action="" className="flex flex-col">
-        <label htmlFor="">Adresse Mail</label>
+        <label htmlFor="mail">Adresse Email</label>
         <input
           onChange={(e) => setMail(e.target.value)}
           value={mail}
           type="text"
+          id="mail"
           className="border-2 border-dark-blue p-1 my-1 shadow-lg rounded"
         />
 
-        <label htmlFor="">Mot de passe</label>
+        <label htmlFor="password">Mot de passe</label>
         <input
           onChange={(e) => setPassword(e.target.value)}
           value={password}
           type="password"
+          id="password"
           className="border-2 border-dark-blue p-1 my-1 shadow-lg rounded"
+          required
         />
 
         <button id="submit" className="my-3 p-3 bg-blue rounded">

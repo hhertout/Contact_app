@@ -9,6 +9,7 @@ function Registration() {
           name="lastname"
           id="lastname"
           className="border-2 border-dark-blue p-1 my-1 shadow-lg rounded"
+          required
         />
 
         <label htmlFor="firstname">Prénom</label>
@@ -17,6 +18,7 @@ function Registration() {
           name="firstname"
           id="firstname"
           className="border-2 border-dark-blue p-1 my-1 shadow-lg rounded"
+          required
         />
 
         <label htmlFor="mail">Mail</label>
@@ -25,6 +27,7 @@ function Registration() {
           name="mail"
           id="mail"
           className="border-2 border-dark-blue p-1 my-1 shadow-lg rounded"
+          required
         />
 
         <label htmlFor="password">Mot de passe</label>
@@ -33,6 +36,7 @@ function Registration() {
           name="password"
           id="password"
           className="border-2 border-dark-blue p-1 my-1 shadow-lg rounded"
+          required
         />
 
         <label htmlFor="confirm-password">Confirmer votre mot de passe</label>
@@ -41,6 +45,7 @@ function Registration() {
           name="confirm-password"
           id="confirm-password"
           className="border-2 border-dark-blue p-1 my-1 shadow-lg rounded"
+          required
         />
 
         <button id="submit" className="my-3 p-3 bg-blue rounded">

@@ -4,7 +4,7 @@ function Navbar() {
   return (
     <>
       <nav className="bg-blue mb-7">
-        <ul className="flex justify-center items-center font-bold text-2xl">
+        <ul className="flex justify-end items-center font-bold text-xl">
           <Link to="/" className="p-5 hover:bg-dark-blue">
             <li>Accueil</li>
           </Link>
