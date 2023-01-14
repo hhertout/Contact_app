@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState } from "react"
 
 const postContact = async (name, mail, tel) => {
   const init = {
-    headers : {
-        "Content-Type": "application/json",
+    headers: {
+      "Content-Type": "application/json",
     },
     method: 'POST',
     body: JSON.stringify({
@@ -11,17 +11,17 @@ const postContact = async (name, mail, tel) => {
       mail: mail,
       tel: tel,
     }),
-  };
-  const route = "http://localhost:3000/api/contacts";
+  }
+  const route = "http://localhost:3000/api/contacts"
   await fetch(route, init).then((res) => {
     window.location.href = "/repertoire";
   });
-};
+}
 
 const updateContact = async (contactId, name, mail, tel) => {
   const init = {
-    headers : {
-        "Content-Type": "application/json",
+    headers: {
+      "Content-Type": "application/json",
     },
     method: "PUT",
     body: JSON.stringify({
@@ -29,18 +29,18 @@ const updateContact = async (contactId, name, mail, tel) => {
       mail: mail,
       tel: tel,
     }),
-  };
-  const route = `http://localhost:3000/api/contacts/${contactId}`;
-  
+  }
+  const route = `http://localhost:3000/api/contacts/${contactId}`
+
   await fetch(route, init).then((res) => {
     window.location.href = "/repertoire";
-  });
-};
+  })
+}
 
 function ContactForm({ method, contactId, contact }) {
-  const [name, setName] = useState("");
-  const [mail, setMail] = useState("");
-  const [tel, setTel] = useState("");
+  const [name, setName] = useState(contact ? contact.name : "")
+  const [mail, setMail] = useState(contact ? contact.mail : "")
+  const [tel, setTel] = useState(contact ? contact.tel : "")
 
   const nameHandleChange = (e) => {
     setName(e.target.value);
@@ -51,7 +51,6 @@ function ContactForm({ method, contactId, contact }) {
   const telHandleChange = (e) => {
     setTel(e.target.value);
   };
-
   const postData = (e) => {
     e.preventDefault();
 
@@ -105,4 +104,4 @@ function ContactForm({ method, contactId, contact }) {
   );
 }
 
-export default ContactForm;
+export default ContactForm
