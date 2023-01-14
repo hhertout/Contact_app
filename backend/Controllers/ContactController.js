@@ -1,7 +1,7 @@
 const ContactRepository = require('../Models/Contact')
 
 exports.createContact = (req, res, next) => {
-    delete req.body._id
+    console.log(req.body)
     const contact = new ContactRepository({
         ...req.body
     })
