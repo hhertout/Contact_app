@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 
 function Registration() {
@@ -6,12 +7,29 @@ function Registration() {
   const [mail, setMail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmedPassword, setConfirmedPassword] = useState('')
-  const [error, setError] = useState('')
 
   const handleRegister = (e) => {
     e.preventDefault()
     if (password === confirmedPassword) {
-      console.log('ok')
+      const init = {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: 'POST',
+        body: JSON.stringify({
+          firstname: firstname,
+          lastname: lastname,
+          mail: mail,
+          password: password
+        }),
+      }
+      fetch('http://localhost:3000/api/auth/signup', init)
+      .then(res => {
+        if(res.ok){
+          window.location.href = "/connexion";
+        }
+      })
+      .catch(err => console.log(err))
     }
   }
   const handleFirstnameChange = (e) => {

@@ -14,7 +14,9 @@ const postContact = async (name, mail, tel) => {
   }
   const route = "http://localhost:3000/api/contacts"
   await fetch(route, init).then((res) => {
-    window.location.href = "/repertoire";
+    if(res.ok){
+      window.location.href = "/repertoire";
+    }
   });
 }
 
