@@ -7,7 +7,6 @@ import ContactEdit from "./components/ContactList/ContactEdit";
 import ContactAdd from "./components/ContactList/ContactAdd";
 import Login from "./components/Registration/Login";
 import Registration from "./components/Registration/Registration";
-import Footer from "./components/Footer";
 
 function App() {
   return (

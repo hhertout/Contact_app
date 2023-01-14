@@ -8,7 +8,7 @@ function Delete({id, deleteTarget}) {
   };
   return (
     <>
-      <form onClick={deleteElement}>
+      <form onSubmit={deleteElement}>
         <button
           id="submit"
           className="px-4 text-center mx-2 bg-red shadow-lg text-white p-3 rounded"

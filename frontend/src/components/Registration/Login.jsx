@@ -5,9 +5,6 @@ function Login() {
   const [mail, setMail] = useState("");
   const [password, setPassword] = useState("");
 
-  console.log(mail);
-  console.log(password);
-
   return (
     <div className="container max-w-prose mt-5">
       <div className="text-2xl mt-1">Se connecter</div>

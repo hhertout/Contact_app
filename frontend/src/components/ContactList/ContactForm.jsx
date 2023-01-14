@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const postContact = (name, mail, tel) => {
+const postContact = async (name, mail, tel) => {
   const init = {
     headers : {
         "Content-Type": "application/json",
@@ -13,12 +13,12 @@ const postContact = (name, mail, tel) => {
     }),
   };
   const route = "http://localhost:3000/api/contacts";
-  fetch(route, init).then((res) => {
+  await fetch(route, init).then((res) => {
     window.location.href = "/repertoire";
   });
 };
 
-const updateContact = (contactId, name, mail, tel) => {
+const updateContact = async (contactId, name, mail, tel) => {
   const init = {
     headers : {
         "Content-Type": "application/json",
@@ -31,12 +31,13 @@ const updateContact = (contactId, name, mail, tel) => {
     }),
   };
   const route = `http://localhost:3000/api/contacts/${contactId}`;
-  fetch(route, init).then((res) => {
+  
+  await fetch(route, init).then((res) => {
     window.location.href = "/repertoire";
   });
 };
 
-function ContactForm({ method, contactId }) {
+function ContactForm({ method, contactId, contact }) {
   const [name, setName] = useState("");
   const [mail, setMail] = useState("");
   const [tel, setTel] = useState("");
