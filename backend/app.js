@@ -1,7 +1,9 @@
 require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose')
-const ContactRepository = require('./models/contact') 
+
+const ContactRoutes = require('./Routes/ContactRouter')
+const UserRoutes = require('./Routes/UserRouter')
 
 const app = express()
 
@@ -20,50 +22,9 @@ app.use((req, res, next) => {
     next()
 })
 
-app.post('/api/contacts', (req, res, next) => {
-   delete req.body._id
-    const contact = new ContactRepository({
-        ...req.body
-    })
-    contact.save()
-    .then(()=>res.status(201).json({message: "Contact enregistré !"}))
-    .catch(err => res.status(400).json({ err }))
-})
 
-app.get('/api/contacts', (req, res, next) => {
-    ContactRepository.find()
-    .then(contacts => res.status(200).json(contacts))
-    .catch(err => res.status(400).json({ err }))
-})
-
-app.get('/api/contacts/:id', (req, res, next) => {
-    ContactRepository.findOne({ _id : req.params.id })
-    .then(contact => {
-        res.status(200).json(contact)
-    })
-    .catch(err => res.status(400).json({ err }))
-})
-
-app.put('/api/contacts/:id', (req, res, next) => {
-    ContactRepository.updateOne(
-        { _id : req.params.id }, 
-        {...req.body, _id: req.params.id}
-    )
-    .then(() => {
-        res.status(200).json({ message : 'Modification Effectuée' })
-    })
-    .catch(err => res.status(400).json({err}))
-})
-
-
-app.delete('/api/contacts/:id', (req, res, next) => {
-    ContactRepository.deleteOne(
-        { _id: req.params.id })
-        .then(() => {
-            res.status(200).json({message: "Contact supprimé"})
-        })
-        .catch(err => res.status(400).json({err}))
-})
+app.use('/api/contacts', ContactRoutes)
+app.use('/api/auth', UserRoutes)
 
 module.exports = app
 
