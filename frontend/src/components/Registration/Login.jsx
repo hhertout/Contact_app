@@ -5,10 +5,14 @@ function Login() {
   const [mail, setMail] = useState("");
   const [password, setPassword] = useState("");
 
+  const login = () => {
+    
+  }
+
   return (
     <div className="container max-w-prose mt-5">
       <div className="text-2xl mt-1">Se connecter</div>
-      <form action="" className="flex flex-col">
+      <form onSumbit={login} className="flex flex-col">
         <label htmlFor="mail">Adresse Email</label>
         <input
           onChange={(e) => setMail(e.target.value)}
